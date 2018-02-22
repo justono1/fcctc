@@ -17,13 +17,7 @@ section {
 .inner-container {
 	position: relative;
 	@include outer-container($inner-container-width);
-	@include pad(0px 2rem);
-	@include media(breakpoint($desktop, "up")) {
-		@include pad(0px 4.5rem);
-	}
-	@include media(breakpoint($desktop-large, "up")) {
-		@include pad(0px 2rem);
-	}
+	@include pad(0px $inner-container-padding);
 	@include media($tablet) {
 		@include outer-container(748px);
 	}
@@ -57,38 +51,6 @@ section {
 	flex-wrap: $row-flex-wrap;
 }
 
-.row__flex-center {
-	align-items: center;
-}
-
-.row__flex-center-desktop {
-	@include media(breakpoint($desktop, "up")) {
-		align-items: center;
-	}
-}
-
-.row__flex-top-tablet-only {
-	@include media(breakpoint($tablet, "only")) {
-		align-items: flex-start;
-	}
-}
-
-.row__flex-top-tablet-landscape-only {
-	@media screen and (max-width: 1023px) and (min-width: 769px) {
-		align-items: flex-start;
-	}
-}
-
-.row__flex-center-tablet {
-	@include media(breakpoint($tablet, "up")) {
-		align-items: center;
-	}
-}
-
-.row__flex-reverse {
-	flex-direction: row-reverse;
-}
-
 @include reset-display;
 
 
@@ -105,15 +67,12 @@ section {
 				.#{$screenname}-#{$columnname} {
 					@include span-columns($span);
 					@include omega(($denominator + 'n'));
-					@if ($numerator / $denominator) == 1 {
-     					 margin-left: 0;
-    				}
 				}
 
 				//centered
 				.#{$screenname}-#{$columnname}__centered {
-					width: 100% * ($numerator / $denominator);
-					margin-left: (100% * (1 - ($numerator / $denominator)) / 2);
+					@include span-columns($span, $display: block-collapse);
+					@include shift($center-shift);
 				}
 
 				//collapse
@@ -131,24 +90,8 @@ section {
 				}
 
 				//flex
-				$ratio: ($numerator / $denominator);
-				@if ($ratio == 1) {
-					.#{$screenname}-#{$columnname}__flex {
-						width: (($numerator / $denominator)) * 100%;
-					}
-
-					.#{$screenname}-#{$columnname}__flex-column {
-						width: (($numerator / $denominator) * .97) * 100%;
-					}
-				} @else {
-					.#{$screenname}-#{$columnname}__flex {
-						width: (($numerator / $denominator) * .97) * 100%;
-					}
-				}
-
-
-				.#{$screenname}-#{$columnname}__flex-collapsed {
-					width: ($numerator / $denominator) * 100%;
+				.#{$screenname}-#{$columnname}__flex {
+					width: (($numerator / $denominator) * .97) * 100%;
 				}
 			}
 		}

@@ -1,13 +1,13 @@
-// @font-face {
-// 	font-family: 'icomoon';
-// 	src:url('fonts/fonts/icomoon.eot?6gk9qb');
-// 	src:url('fonts/fonts/icomoon.eot?#iefix6gk9qb') format('embedded-opentype'),
-// 		url('fonts/fonts/icomoon.woff?6gk9qb') format('woff'),
-// 		url('fonts/fonts/icomoon.ttf?6gk9qb') format('truetype'),
-// 		url('fonts/fonts/icomoon.svg?6gk9qb#icomoon') format('svg');
-// 	font-weight: normal;
-// 	font-style: normal;
-// }
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/fonts/icomoon.eot?6gk9qb');
+	src:url('fonts/fonts/icomoon.eot?#iefix6gk9qb') format('embedded-opentype'),
+		url('fonts/fonts/icomoon.woff?6gk9qb') format('woff'),
+		url('fonts/fonts/icomoon.ttf?6gk9qb') format('truetype'),
+		url('fonts/fonts/icomoon.svg?6gk9qb#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 .default-icon {
 	font-family: 'icomoon';
@@ -26,9 +26,10 @@
 			text-decoration: none;
 		}
 	}
-
+	
 }
 
 @each $icon-name, $icon-unicode in $default-icons {
 	@include icon($icon-name, $icon-unicode);
 }
+

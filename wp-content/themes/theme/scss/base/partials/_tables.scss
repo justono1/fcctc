@@ -1,23 +1,9 @@
-.wysiwyg table {
-	width: $table-width !important;
-}
-
 table {
 	margin: $table-margin 0;
 	width: $table-width;
 	border-collapse: $table-border-collapse;
 	background-color: $table-background-color;
-	.wysiwyg & {
-		border: .1rem $color-light-gray solid;
-	}
 	tr {
-		.wysiwyg & {
-			&:first-child {
-				font-weight: $font-weight-bold;
-				//background-color: $color-light-gray;
-				border-bottom: .1rem solid $color-light-gray;
-			}
-		}
 		td,th {
 			border: $table-border-thickness solid $table-border-color;
 			text-align: $table-align;

@@ -47,7 +47,7 @@ $desktop: 3;
 $desktop-large: 4;
 
 
-$screensize: 600, 769, 1024, 1226;
+$screensize: 480, 769, 1024, 1200;
 
 
 @function breakpoint($screen, $direction) {
@@ -63,11 +63,7 @@ $screensize: 600, 769, 1024, 1226;
 	}
 	@if $direction == 'only' {
 		@if $screen != $desktop-large {
-			@if $screen != $mobile {
-				@return new-breakpoint(min-width nth($screensize, $screen) + px max-width nth($screensize, $screen+1) + px $columnamount);
-			} @else {
-				@return new-breakpoint(min-width 0 max-width nth($screensize, $screen+1) + px $columnamount);
-			}
+			@return new-breakpoint(min-width nth($screensize, $screen) + px max-width nth($screensize, $screen+1) + px $columnamount);
 		}
 	}
 }
@@ -95,14 +91,7 @@ $columns: (
 	col-6-7: ((6,7)),
 	col-1-8: ((1,8)),
 	col-3-8: ((3,8)),
-	col-5-8: ((5,8)),
-	col-7-8: ((7,8)),
-	col-4-9: ((4,9)),
-	col-1-12: ((1,12)),
-	col-3-12: ((3,12)),
-	col-5-12: ((5,12)),
-	col-7-12: ((7,12)),
-	col-11-12: ((11,12))
+	col-5-8: ((5,8))
 );
 
 //*****************//
@@ -113,38 +102,25 @@ $gray-darker: 							lighten($gray-base, 13.5%);
 $gray-dark: 							lighten($gray-base, 20%);
 $gray: 									lighten($gray-base, 33.5%);
 $gray-light: 							lighten($gray-base, 46.7%);
-$gray-lighter:							lighten($gray-base, 65%);
-$gray-lightest:							lighten($gray-base, 95%);
+$gray-lighter:							lighten($gray-base, 93.5%);
 
 $default-action-color: 					#337ab7;
 $error-color:							#e2231b;
 $required-color:						#e63c2f;
 $placeholder-color:						$gray-lighter;
 
-$color-light-gray:						#e2e2e3;
-$color-lightest-gray:					#f6f6f6;
-$color-dark-gray:						#666666;
-
-
 //--*Add custom colors here
 
-$color-red:								#cd664a;
-$color-green:							#58a091;
-$color-orange:							#f7931d;
-$color-teal:							#2e8d98;
-$color-dark-teal:						#125e6f;
-$color-light-teal:						#79e1ed;
-$color-deep-teal:						#08313a;
+$red: #dd2d39;
 
 //*****************//
 //Default colors for UI components
 //*****************//
-$body-bg: 								#fff;
-$text-color: 							#898989;
-$link-color: 							$color-red;
-$link-hover-color: 						darken($color-red, 15);
-$link-hover-decoration: 				no;
-$color-headings: 						$color-dark-teal;
+$body-bg: 								#fafafa;
+$text-color: 							#252525 ;
+$link-color: 							$default-action-color;
+$link-hover-color: 						darken($default-action-color, 15%);
+$link-hover-decoration: 				underline;
 
 
 
@@ -158,7 +134,7 @@ $animation-function-default: 			linear;
 // Document Booleans
 //*****************//
 
-$document-is-viewport-height: 			false;
+$document-is-viewport-height: 			true;
 
 //*****************//
 //Default Typography
@@ -166,36 +142,28 @@ $document-is-viewport-height: 			false;
 //Default Font Size 16px set in the bourbon framework
 
 //--*Font Sizes
-
-$font-text: 'Lato', 'Helvetica', 'Arial', sans-serif;
-$primary-font-family: $font-text;
-$font-display: 'Abel', 'Helvetica', 'Arial', sans-serif;
-
+$primary-font-family: 'Lato', sans-serif;
+$secondary-font-family: 'Source Serif Pro', serif;
 
 $font-size-base: 						1.6rem;
 $font-size-large: 						1.8rem;
 $font-size-small: 						1.4rem;
 
 $font-weight-light: 					300;
-$font-weight-regular: 					400;
-$font-weight-base: 						$font-weight-light;
-$font-weight-medium: 					500;
-$font-weight-bold: 						700;
+$font-weight-base: 						400;
+$font-weight-bold: 						800;
 
 $modular-scale-ratio: $minor-third; //Overirde bourbons default ratio
 
-$font-size-h1: 							modular-scale(6)*1.5;
+$font-size-h1: 							modular-scale(6);
 $font-size-h2: 							modular-scale(5);
 $font-size-h3: 							modular-scale(4);
 $font-size-h4: 							modular-scale(3);
 $font-size-h5:							modular-scale(2);
 $font-size-h6: 							modular-scale(1);
 
-//--*Mobile Font Size
-$type-size-modifier: .7;
-
 //--*Line Heights
-$line-height-relative-base: 			1.9;
+$line-height-relative-base: 			1.6;
 $line-height-header-base: 				1.2;
 
 //--*Font Margins
@@ -209,8 +177,8 @@ $list-margin-bottom: 					.5rem;
 $list-margin-left: 						2.5rem;
 
 //--*Horizontal Rule
-$hr-background: 						$gray-lighter;
-$hr-height: 							.1rem;
+$hr-background: 						#252525;
+$hr-height: 							.4rem;
 $hr-margin: 							$margin-base * 2;
 
 
@@ -222,12 +190,12 @@ $hr-margin: 							$margin-base * 2;
 //--*Table Defaults
 $table-margin: 							$margin-base * 2;
 $table-width: 							100%;
-$table-background-color: 				$color-lightest-gray;
+$table-background-color: 				#fff;
 $table-border-collapse: 				collapse;
-$table-border-thickness: 				0;
-$table-border-color: 					$color-lightest-gray;
-$table-alternate-colors: 				true;
-$table-background-offset: 				lighten($color-lightest-gray, 2.5%);
+$table-border-thickness: 				.1rem;
+$table-border-color: 					$gray;
+$table-alternate-colors: 				false;
+$table-background-offset: 				$gray-lighter;
 
 $table-align: 							left;
 $table-valign: 							middle;
@@ -253,12 +221,12 @@ $table-body-font-color: 				$gray-dark;
 
 $outer-container-width:					100%;
 $inner-container-width:					117rem;
-$inner-container-padding:				4.5rem;
+$inner-container-padding:				1.5rem;
 $section-padding:						10rem;
 
-$section-border: 						true; //set to false to turn borders off
+$section-border: 						false; //set to false to turn borders off
 $section-border-color:					$gray-light;
-$section-border-thickness:				0;
+$section-border-thickness:				.1rem;
 
 $row-flex-display:						flex;
 $row-flex-align-items:					stretch;
@@ -271,21 +239,21 @@ $row-flex-wrap: 						wrap;
 //*****************//
 //Default Buttons
 //*****************//
-$button-padding-v: 						1.1rem;
-$button-padding-h: 						2.6rem;
-$button-border-radius: 					3rem;
+$button-padding-v: 						1.5rem;
+$button-padding-h: 						3rem;
+$button-border-radius: 					0;
 
 
 //--*Button Default Style .btn
-$button-default-color:					$color-red;
-$button-default-hover-color: 			#fff;
+$button-default-color:					$gray-lighter;
+$button-default-hover-color: 			darken($button-default-color, 15%);
 
-$button-default-font-family: 			$font-text;
-$button-default-font-weight: 			$font-weight-bold;
+$button-default-font-family: 			$primary-font-family;
+$button-default-font-weight: 			$font-weight-base;
 $button-default-font-size: 				$font-size-base;
-$button-default-font-color: 			#fff;
-$button-default-font-hover-color: 		#fff;
-$button-default-text-transform: 		uppercase;
+$button-default-font-color: 			$gray;
+$button-default-font-hover-color: 		$gray;
+$button-default-text-transform: 		none;
 
 $button-default-outlined: 				false; // set true to make outlined button no background
 $button-default-border-thickness: 		.1rem;
@@ -295,7 +263,7 @@ $button-default-border-hover-color: 	$button-default-hover-color;
 
 
 //--*Button Primary Style .btn.btn-primary
-$button-primary-color: 					#163D53;
+$button-primary-color: 					$red;
 $button-primary-hover-color: 			darken($button-primary-color, 15%);
 $button-primary-hover-transparency:		false;
 
@@ -342,33 +310,33 @@ $button-secondary-border-hover-color:	$button-secondary-hover-color;
 //--*Input, Textarea
 $form-padding-v: 						1rem;
 $form-padding-h: 						1.5rem;
-$form-border-radius: 					0;
+$form-border-radius: 					.3rem;
 $form-margin-bottom: 					2rem;
-$form-width: 							100%;
+$form-width: 							auto;
 $form-display: 							inline-block;
 
-$form-color: 							#fff;
+$form-color: 							$gray-light;
 
-$form-outlined: 						false;
+$form-outlined: 						true;
 $form-border-thickness: 				.1rem;
 $form-border-style: 					solid;
 
 $form-font-color: 						$text-color;
 $form-font-size: 						$font-size-base;
 $form-font-weight: 						$font-weight-base;
-$form-font-family: 						$font-text;
+$form-font-family: 						$primary-font-family;
 
-$form-focus-color: 						#fff;
+$form-focus-color: 						$default-action-color;
 $form-focus-font-color: 				$form-font-color;
 
 //--*Textarea Specific
 $form-textarea-resize: 					false;
-$form-textarea-height: 					30rem;
+$form-textarea-height: 					2.5rem;
 
 //--*Label
 $form-label-font-color: 				$text-color;
 $form-label-font-size: 					$form-font-size;
-$form-label-font-weight: 				$font-weight-regular;
+$form-label-font-weight: 				$font-weight-bold;
 $form-label-font-family: 				$form-font-family;
 
 

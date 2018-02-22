@@ -7,17 +7,119 @@
 {% endblock %}
 
 	<body data-template="base.twig">
-		{% include 'base/parts/nav.twig' %}
+		{# {% include 'base/parts/nav.twig' %} #}
 
-		<main{% if post.get_field('custom_class') %} class="page-{{post.get_field('custom_class')}}"{% endif %}>
+		{# <main{% if post.get_field('custom_class') %} class="page-{{post.get_field('custom_class')}}"{% endif %}>
 			{% block content %}
 				Sorry, no content
 			{% endblock %}
-		</main>
+		</main> #}
 
-		{% block footer %}
+		{# {% block footer %}
 			{% include 'base/parts/footer.twig' %}
-		{% endblock %}
+		{% endblock %} #}
+
+		<div class="popup-container">
+			<div id="vimeo-player"></div>
+		</div>
+		<header>
+			<img class="header-graphic" src="{{theme.link}}/img/header-graphic.svg" />
+			<div class="inner-container">
+				<nav>
+					<ul>
+						<li data-go-to="our-pastor">Our Pastor</li>
+						<li data-go-to="our-mission">Our Mission</li>
+						<li data-go-to="contact">Contact</li>
+						<li><a href="https://www.google.com/maps?saddr=Current+Location&daddr=3686+South+Airport+Road+West+Traverse+City+MI+49684" target="_blank">Directions</a></li>
+					</ul>
+				</nav>
+				<div class="row">
+					<div class="mobile-col-1-1 tablet-col-2-3 desktop-col-1-3">
+						<h3><img src="{{theme.link}}/img/logo.svg" />Disciples of Christ</h3>
+						<hr class="header-divider">
+						<h1>First <br>Christian <br>Church</h1>
+						<p>Loving God, Loving our Neighbors <br> <strong><small>Worship begins every Sunday at 10:30am</small></strong></p>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section class="section__our-pastor" id="our-pastor">
+				<div class="angled-image-background__half">
+					<img src="{{theme.link}}/img/pastor-paul.jpg" alt="Meet Pastor Paul Holland" />
+				</div>
+				<div class="inner-container">
+					<div class="row">
+						<div class="mobile-col-1-1 tablet-col-1-2 desktop-col-2-3">
+							&nbsp;
+						</div>
+						<div class="mobile-col-1-1 tablet-col-1-2 desktop-col-1-3">
+							<h2 class="heading-w-divide">Pastor <br>Paul Holland</h2>
+							<p>Born in California, raised in Montana. Served in the Air Force in Texas, Montana and Hawaii. Jesus finally “ran” me down in Northern Michigan in 1988 and I accepted him as my Lord and Savior right here at First Christian Church. I have had the privilege to minister to and with youth and adults across the country and internationally.</p>
+							<p>I am married to my beautiful wife Debbie and we have 4 children stretching from coast to coast. We are an avid sports couple, love all kinds of food and having fun while we build relationships.</p>
+							<span class="button-link"><i class="default-icon icon-play-circle-o"></i> Learn More</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section__our-mission" id="our-mission">
+				<div class="trans"></div>
+				<video poster="{{theme.link}}/img/mission-video-poster.jpg" autoplay loop>
+					<source src="{{theme.link}}/video/mission-video.mp4" type="video/mp4">
+					<source src="{{theme.link}}/video/mission-video.webm" type="video/webm">
+				</video>
+				<div class="inner-container">
+					<div class="row">
+						<div class="mobile-col-5-6__centered">
+							<blockquote>
+								<p>Our purpose is to be the best neighbors Christ calls us to be. We are here to connect through healthy relationships, reach out and share the good news of Jesus, offer amazing worship, serve needs in the church, our community and the world, and to strengthen our relationship with God.</p>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section__contact" id="contact">
+				<div id="map"></div>
+				<div class="inner-container">
+					<div class="row">
+						<div class="desktop-col-1-3">
+							<div class="contact-card">
+								<div class="contact-card__info">
+									<h3>First Christian Church</h3>
+									<hr>
+
+									<p><strong>Worship</strong><br>
+									Every Sunday rain or shine, 10:30am</p>
+
+									<p><strong>Address</strong><br>
+									3686 South Airport Road West<br>
+									Traverse City, MI 49684</p>
+
+									<p><strong>Phone</strong><br>
+									231-946-4074</p>
+
+									<p><strong>Email</strong><br>
+									churchoffice@firstchristianchurch.info</p>
+								</div>
+								<a href="https://www.google.com/maps?saddr=Current+Location&daddr=3686+South+Airport+Road+West+Traverse+City+MI+49684" class="btn btn-primary" target="_blank">Get Direction</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="inner-container">
+				<div class="row">
+					<div class="mobile-col-1-1 tablet-col-1-2 logo">
+						<p><img src="{{theme.link}}/img/logo-white.svg" alt="First Chrisitan Church">First Christian Church</p>
+					</div>
+					<div class="mobile-col-1-1 tablet-col-1-2">
+						<p>Copyright &copy; 2017 First Christian Church</p>
+					</div>
+				</div>
+			</div>
+		</footer>
 
 
 		{% include 'base/parts/scripts.twig' %}

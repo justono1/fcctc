@@ -3,51 +3,29 @@ body {
   font-family: $primary-font-family;
   font-size: $font-size-base;
   line-height: $line-height-relative-base;
-  -webkit-font-smoothing: antialiased;
 }
 h1,h2,h3,h4,h5,h6 {
 	margin: $header-margin-base 0;
-	font-weight: $font-weight-regular;
+	font-weight: $font-weight-bold;
 	line-height: $line-height-header-base;
-    -webkit-font-smoothing: antialiased;
 }
-
-h1, .h1 {
+h1 {
 	font-size: $font-size-h1;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h1 * $type-size-modifier;
-    }
-    font-family: $font-display;
 }
-h2, .h2 {
+h2 {
 	font-size: $font-size-h2;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h2 * $type-size-modifier;
-    }
 }
-h3, .h3 {
+h3 {
 	font-size: $font-size-h3;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h3 * $type-size-modifier;
-    }
 }
-h4, .h4 {
+h4 {
 	font-size: $font-size-h4;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h4 * $type-size-modifier;
-    }
 }
-h5, .h5 {
+h5 {
 	font-size: $font-size-h5;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h5 * $type-size-modifier;
-    }
 }
-h6, .h6 {
+h6 {
 	font-size: $font-size-h6;
-    @include media(breakpoint($mobile, "only")) {
-        font-size: $font-size-h6;
-    }
 }
 a {
 	color: $link-color;
@@ -60,10 +38,10 @@ a {
 }
 p {
 	margin: 0 0 $margin-base;
-	font-weight: $font-weight-light;
-    line-height: 1.4;
+	font-weight: $font-weight-base;
+
 	a {
-		font-size: 2rem;
+		font-size: 1.6rem;
 	}
 }
 blockquote {
@@ -113,3 +91,7 @@ hr {
 	background-color: $hr-background;
 	margin: $hr-margin 0;
 }
+
+
+
+

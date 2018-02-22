@@ -1,5 +1,349 @@
-@import "base/base";
-@import "blocks/**/*.scss";
-@import "module/module";
-@import "layout/layout";
-@import "base/partials/states";
+@import 'base/base';
+@import 'blocks/**/*.scss';
+@import 'module/module';
+@import 'layout/layout';
+@import 'base/partials/states';
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $secondary-font-family;
+	text-transform: uppercase;
+}
+
+h2 {
+	margin-bottom: 30px;
+}
+
+.popup-container {
+	background: rgba($text-color, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: none;
+}
+
+#vimeo-player {
+	margin: 0 auto;
+	width: 640px;
+	margin-top: 100px;
+}
+
+blockquote {
+	p {
+		font-family: $secondary-font-family;
+		font-size: 4rem;
+		color: #fff;
+		text-align: center;
+		line-height: 1.3;
+		@include media(breakpoint($tablet, 'down')) {
+			font-size: 3rem;
+		}
+	}
+}
+
+.button-link {
+	font-size: 1.8rem;
+	color: $red;
+	text-transform: uppercase;
+	cursor: pointer;
+	@include transition(0.3s linear);
+	.icon-play-circle-o {
+		&:before {
+			@include transition(0.3s linear);
+			color: $red;
+			font-size: 3rem;
+			position: relative;
+			top: 6px;
+			margin-right: 4px;
+		}
+	}
+	&:hover {
+		color: $text-color;
+		.icon-play-circle-o {
+			&:before {
+				color: $text-color;
+			}
+		}
+	}
+}
+
+.trans {
+	background: rgba(darken($red, 5%), 0.9);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.heading-w-divide {
+	&:after {
+		content: '';
+		height: 0.4rem;
+		background: $text-color;
+		width: 35px;
+		display: block;
+		margin-top: 15px;
+	}
+}
+
+.angled-image-background__half {
+	overflow: hidden;
+	width: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	-webkit-clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+	clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		//TODO: Polyfill install
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		width: 40%;
+	}
+	@include media(breakpoint($mobile, 'down')) {
+		position: relative;
+		width: 100%;
+		clip-path: none;
+		-webkit-clip-path: none;
+		height: 300px;
+	}
+}
+
+header {
+	position: relative;
+	height: 100%;
+	height: 750px;
+	overflow: hidden;
+	.header-graphic {
+		position: absolute;
+		z-index: 0;
+		bottom: -16%;
+		right: -5%;
+		min-width: 550px;
+		@include transform(rotate(8deg));
+		@media screen and (min-width: 1300px) {
+			bottom: -32%;
+			right: -9%;
+		}
+		@media screen and (min-width: 1812px) {
+			bottom: -47%;
+			right: -12%;
+		}
+	}
+	h1 {
+		font-size: 7.2rem;
+		line-height: 1;
+	}
+	p {
+		margin-bottom: 0;
+		margin-top: 25px;
+		font-size: 1.8rem;
+	}
+	h3 {
+		position: relative;
+		font-family: $primary-font-family;
+		font-weight: 300;
+		color: $red;
+		font-size: 2rem;
+		img {
+			position: absolute;
+			left: -60px;
+			top: -13px;
+			width: 36px;
+		}
+	}
+	hr.header-divider {
+		width: 6rem;
+	}
+	.inner-container {
+		padding-top: 94px;
+		.row {
+			padding-left: 57px;
+		}
+	}
+	nav {
+		position: absolute;
+		right: 21px;
+		top: 85px;
+		ul {
+			li {
+				cursor: pointer;
+				margin-right: 20px;
+				display: inline-block;
+				@include transition(0.3s linear);
+				a {
+					color: $red;
+					&:hover {
+						color: darken($red, 5%);
+					}
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+				&:hover {
+					color: $red;
+				}
+			}
+		}
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		nav {
+			top: 45px;
+		}
+		h3 {
+			img {
+				position: relative;
+				left: -3px;
+				top: auto;
+				display: block;
+				margin-bottom: 14px;
+			}
+		}
+		.inner-container {
+			padding-top: 60px;
+			.row {
+				padding-left: 35px;
+			}
+		}
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		height: 100%;
+		min-height: 460px;
+	}
+}
+
+.section__our-pastor {
+	position: relative;
+	@include media(breakpoint($mobile, 'down')) {
+		padding-top: 0;
+		padding-bottom: 5rem;
+	}
+}
+
+.section__our-mission {
+	padding: 20rem 0;
+	position: relative;
+	overflow: hidden;
+	.inner-container {
+		z-index: 3;
+	}
+	video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+	}
+	.trans {
+		z-index: 2;
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		padding: 10rem 0;
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		padding: 1rem 0;
+	}
+}
+
+.section__contact {
+	padding: 20rem 0;
+	position: relative;
+	@include media(breakpoint($tablet, 'down')) {
+		padding: 7rem 0;
+	}
+}
+
+#map {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+
+.contact-card {
+	position: relative;
+	z-index: 2;
+	h3 {
+		font-size: 2rem;
+	}
+	hr {
+		height: 1px;
+		margin: 15px 0 25px;
+	}
+	.btn {
+		display: block;
+	}
+	.contact-card__info {
+		box-shadow: 0px 2px 16px 1px rgba($text-color, 0.4);
+		padding: 25px;
+		margin-bottom: 10px;
+		background: #fff;
+	}
+}
+
+footer {
+	text-align: right;
+	padding: 4rem 0;
+	background: #363636;
+	p {
+		margin: 0;
+		color: #fff;
+		text-transform: uppercase;
+	}
+	.logo {
+		text-align: left;
+		img {
+			width: 37px;
+			position: absolute;
+			top: -11px;
+			left: -2px;
+		}
+		p {
+			padding-left: 48px;
+			position: relative;
+			font-family: $secondary-font-family;
+		}
+	}
+	@include media(breakpoint($tablet, 'down')) {
+		text-align: center;
+		.logo {
+			text-align: center;
+			img {
+				margin: 0 auto;
+				position: relative;
+				top: auto;
+				left: auto;
+				display: block;
+				margin-bottom: 10px;
+			}
+			p {
+				padding-left: 0;
+				margin-bottom: 25px;
+			}
+		}
+	}
+}

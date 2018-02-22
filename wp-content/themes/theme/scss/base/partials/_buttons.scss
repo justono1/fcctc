@@ -21,15 +21,13 @@
 		border: none;
 		background-color: $button-default-color;
 	}
-	border: .2rem solid $button-default-color;
 	&:hover {
 		text-decoration: none;
-		color: $button-default-color;
 		@if $button-default-outlined == true {
 			background-color: $button-default-border-color;
 			color: $button-default-font-hover-color;
 		} @else {
-			border: .2rem solid $button-default-color;
+			border: none;
 			background-color: $button-default-hover-color;
 		}
 	}

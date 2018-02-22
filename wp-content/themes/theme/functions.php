@@ -9,18 +9,17 @@ add_action( 'admin_init', 'activate_default_plugins' );
 add_filter('show_admin_bar', '__return_false');
 
 function wpb_adding_scripts() {
-	wp_register_script('function_js', get_stylesheet_directory_uri().'/js/function.js', array('jquery-core'), '1.0', true);
-	wp_register_script('google_maps_api', 'https://maps.googleapis.com/maps/api/js?key=APIKEY', array(), null, true);
-	wp_register_script('google_maps', get_stylesheet_directory_uri().'/js/google-maps.js', array('prts_google_maps_api'), '1.0', true);
+	wp_register_script('scripts_js', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery-core', 'google_maps_api', 'vimeo'), '1.0', true);
+	wp_register_script('google_maps_api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDqsZ_JSbb7mNSySsFSfIx1iedsrxe_CgI', array(), null, true);
 	wp_register_script('font_awesome', 'https://use.fontawesome.com/6996d5cac8.js', array(), '1.0', true);
-    wp_register_script('vimeo', 'https://player.vimeo.com/api/player.js', array(), '1.0', true);
+  wp_register_script('vimeo', 'https://player.vimeo.com/api/player.js', array(), '1.0', true);
 
-    wp_enqueue_script('function_js');
+	wp_enqueue_script('scripts_js');
 	wp_enqueue_script('google_maps_api');
-	wp_enqueue_script('google_maps');
+
 	wp_enqueue_script('jquery-core');
 	wp_enqueue_script('font_awesome');
-    wp_enqueue_script('vimeo');
+ 	wp_enqueue_script('vimeo');
 
     //Register a script per page
 	// if (is_page_template('template-page-solutions_wizard.php')){

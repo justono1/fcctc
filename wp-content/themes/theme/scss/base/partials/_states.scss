@@ -2,15 +2,29 @@
 	display: none
 }
 
-
-@include media(breakpoint($mobile, "down")) {
+@include media($mobile) {
 	.is-hidden-mobile {
 		display: none;
 	}
 }
 
-@include media(breakpoint($mobile, "down")) {
-	.is-hidden-mobile {
-		color: red;
+@include media($tablet) {
+	.is-hidden-tablet {
+		display: none;
+	}
+}
+
+@include media($tablet-landscape) {
+	.is-hidden-tablet-landscape {
+		display: none;
+	}
+}
+
+@include media($desktop) {
+	.is-hidden-desktop {
+		display: none;
+	}
+	.row.is-hidden-desktop {
+		display: none;
 	}
 }
