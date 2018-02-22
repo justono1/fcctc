@@ -96,3 +96,7 @@ wp-content/mysql.sql
 *.asf
 *.wmv
 *.avi
+
+
+/node_modules
+/wp-content/themes/theme/screenshot.psd
