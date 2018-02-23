@@ -154,11 +154,20 @@ header {
 	h1 {
 		font-size: 7.2rem;
 		line-height: 1;
+		@media screen and (max-width: 500px) {
+			font-size: 6rem;
+		}
+		@media screen and (max-width: 380px) {
+			font-size: 4rem;
+		}
 	}
 	p {
 		margin-bottom: 0;
 		margin-top: 25px;
 		font-size: 1.8rem;
+		@media screen and (max-width: 380px) {
+			font-size: 1.6rem;
+		}
 	}
 	h3 {
 		position: relative;
@@ -180,6 +189,22 @@ header {
 		padding-top: 94px;
 		.row {
 			padding-left: 57px;
+		}
+	}
+	.mobile-nav-icon {
+		display: none;
+		position: absolute;
+		right: 21px;
+		top: 35px;
+		cursor: pointer;
+		div {
+			width: 35px;
+			height: 4px;
+			margin-bottom: 3px;
+			background: #252525;
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 	nav {
@@ -230,6 +255,35 @@ header {
 	@include media(breakpoint($tablet, 'down')) {
 		height: 100%;
 		min-height: 460px;
+	}
+	@media screen and (max-width: 600px) {
+		.mobile-nav-icon {
+			display: block;
+		}
+		.inner-container {
+			padding-top: 30px;
+		}
+		nav {
+			display: none;
+			top: 64px;
+			background: $red;
+			ul {
+				margin: 0;
+				padding: 25px;
+				li {
+					margin: 0;
+					margin-bottom: 15px;
+					display: block;
+					color: #fff;
+					&:last-child {
+						margin-bottom: 0;
+					}
+					a {
+						color: #fff;
+					}
+				}
+			}
+		}
 	}
 }
 

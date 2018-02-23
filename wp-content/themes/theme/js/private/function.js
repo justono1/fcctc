@@ -55,6 +55,20 @@ $(document).ready(function() {
 		$('.popup-container').fadeOut();
 	});
 
+	$('.mobile-nav-icon').on('click', function() {
+		$('nav').fadeToggle();
+	});
+
+	$(window).on('resize', function() {
+		var w = $(this).width();
+
+		if (w >= 600) {
+			$('nav').fadeIn();
+		} else {
+			$('nav').fadeOut();
+		}
+	});
+
 	//end placeholder
 
 	//Any video in wsiwyg will be responsive
