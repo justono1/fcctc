@@ -2,9 +2,29 @@ var $ = jQuery;
 
 $(document).ready(function() {
 	//begin placeholder
+	var options = {
+		id: 201008939,
+		color: '#dd2d39'
+	};
+
+	var player = new Vimeo.Player('vimeo-player', options);
+
+	player.setVolume(50);
+
+	player.on('play', function() {
+		console.log('played the video!');
+	});
 
 	$('.button-link').on('click', function() {
-		$('.popup-container').fadeIn();
+		$('.popup-container').animate(
+			{
+				opacity: 1
+			},
+			500
+		);
+
+		$('.popup-container').css('pointer-events', 'auto');
+
 		setTimeout(function() {
 			player.play();
 		}, 500);
@@ -22,7 +42,13 @@ $(document).ready(function() {
 
 	$('.popup-container').on('click', function() {
 		player.pause();
-		$(this).fadeOut();
+		$(this).animate(
+			{
+				opacity: 0
+			},
+			500
+		);
+		$('.popup-container').css('pointer-events', 'none');
 	});
 
 	player.on('ended', function() {
