@@ -1,3 +1,33 @@
+#301 Redirects
+Redirect 301 /worship_service.cfm http://firstchristianchurchtc.com
+Redirect 301 /Music.cfm http://firstchristianchurchtc.com
+Redirect 301 /fellowship.cfm http://firstchristianchurchtc.com
+Redirect 301 /bulletin.cfm http://firstchristianchurchtc.com
+Redirect 301 /prayer_request.cfm http://firstchristianchurchtc.com
+Redirect 301 /special_worship_services.cfm http://firstchristianchurchtc.com
+Redirect 301 /infantdedicationpolicy.cfm http://firstchristianchurchtc.com
+Redirect 301 /weddingpolicy.cfm http://firstchristianchurchtc.com
+Redirect 301 /kids_ministry.cfm http://firstchristianchurchtc.com
+Redirect 301 /youth_ministry.cfm http://firstchristianchurchtc.com
+Redirect 301 /bible_study.cfm http://firstchristianchurchtc.com
+Redirect 301 /monday_prayer.cfm http://firstchristianchurchtc.com
+Redirect 301 /biblestudies.cfm http://firstchristianchurchtc.com
+Redirect 301 /opportunities_to_serve.cfm http://firstchristianchurchtc.com
+Redirect 301 /local_missions.cfm http://firstchristianchurchtc.com
+Redirect 301 /pantry.cfm http://firstchristianchurchtc.com
+Redirect 301 /foreign_missions.cfm http://firstchristianchurchtc.com
+Redirect 301 /bethlehem.cfm http://firstchristianchurchtc.com
+Redirect 301 /safe_harbor.cfm http://firstchristianchurchtc.com
+Redirect 301 /cwf.cfm http://firstchristianchurchtc.com
+Redirect 301 /craft_shows.cfm http://firstchristianchurchtc.com
+Redirect 301 /health_and_wellness.cfm http://firstchristianchurchtc.com
+Redirect 301 /calendar.cfm http://firstchristianchurchtc.com
+Redirect 301 /beliefs.cfm http://firstchristianchurchtc.com
+Redirect 301 /staff.cfm http://firstchristianchurchtc.com
+Redirect 301 /history.cfm http://firstchristianchurchtc.com
+Redirect 301 /Bldg_Grnds.cfm http://firstchristianchurchtc.com
+Redirect 301 /facilities.cfm http://firstchristianchurchtc.com
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
